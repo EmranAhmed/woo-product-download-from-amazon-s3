@@ -1,0 +1,164 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Amazon S3 WooCommerce Downloadable Files\n"
+"POT-Creation-Date: 2016-07-26 13:56+0600\n"
+"PO-Revision-Date: 2016-07-26 13:56+0600\n"
+"Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
+"Language-Team: ThemeHippo <themehippo@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: ea-wc-amazon-s3.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ea-wc-amazon-s3.php:93
+msgid "Not Verified"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:93 ea-wc-amazon-s3.php:97 ea-wc-amazon-s3.php:121
+msgid "Error"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:97
+msgid "Please select a file to upload"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:121
+msgid "Something went wrong during the upload process."
+msgstr ""
+
+#: ea-wc-amazon-s3.php:157 ea-wc-amazon-s3.php:538 ea-wc-amazon-s3.php:552
+msgid "Amazon S3 Settings"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:214
+msgid "Select a Bucket"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:221
+msgid "Bucket name"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:222 ea-wc-amazon-s3.php:252
+msgid "Actions"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:229
+msgid "Browse"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:244
+msgid "Go Back"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:249
+msgid "File name"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:250
+msgid "File size"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:251
+msgid "Uploaded on"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:272
+msgid "ago"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:275
+msgid "Use File"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:292
+msgid "Start Over"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:298
+msgid "View More"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:323
+msgid "Browse S3 Buckets"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:324
+msgid "Upload to Amazon S3"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:378
+msgid "Select a bucket to upload the file to"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:386
+msgid "Upload to S3"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:391
+msgid ""
+"Success! <a href=\"#\" class=\"ea-wc-amazon-s3-insert\">Insert uploaded "
+"file</a>."
+msgstr ""
+
+#: ea-wc-amazon-s3.php:417
+msgid "File not found. Please try again."
+msgstr ""
+
+#: ea-wc-amazon-s3.php:456
+msgid "Go to homepage"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:558
+msgid "Amazon S3 Access Key ID"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:559
+msgid ""
+"After logging into your Amazon S3 account, click on \"Security Credentials\" "
+"in the sidebar. Scroll down to \"Access Keys (Access Key ID and Secret "
+"Access Key)\" and you will see your Access Key ID. Copy and paste it here."
+msgstr ""
+
+#: ea-wc-amazon-s3.php:565
+msgid "Amazon S3 Secret Key"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:566
+msgid ""
+"In the same Access Credentials area, your \"Secret Key\" will be hidden. You "
+"will need to click the \"Show\" link to see it. Copy and paste it here."
+msgstr ""
+
+#: ea-wc-amazon-s3.php:572
+msgid "Amazon S3 EndPoint"
+msgstr ""
+
+#: ea-wc-amazon-s3.php:573
+msgid " Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code>"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Amazon S3 WooCommerce Downloadable Files"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Amazon S3 Plugin For WooCommerce Downloadable Files"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Emran Ahmed"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://emran.me/"
+msgstr ""
