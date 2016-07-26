@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * Plugin Name:       EA WooCommerce Amazon S3
+	 * Plugin Name:       Amazon S3 WooCommerce Downloadable Files
 	 * Description:       Amazon S3 Plugin For WooCommerce Downloadable Files
 	 * Version:           1.0.0
 	 * Author:            Emran Ahmed

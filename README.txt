@@ -1,4 +1,4 @@
-=== EA WooCommerce Amazon S3 ===
+=== Amazon S3 WooCommerce Downloadable Files ===
 Contributors: emranahmed
 Tags: woocommerce, amazon, aws, s3, download, downloadable product, s3-download
 Requires at least: 4.3
