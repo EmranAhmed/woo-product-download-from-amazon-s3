@@ -1,9 +1,9 @@
 <?php
 	/**
-	 * Plugin Name:       Amazon S3 WooCommerce Downloadable Files
-	 * Description:       Amazon S3 Plugin For WooCommerce Downloadable Files
+	 * Plugin Name:       Woo Product Download from Amazon S3
+	 * Description:       Woocommerce Product Download / Upload to / from using Amazon S3 service.
 	 * Version:           1.0.0
-	 * Author:            Emran Ahmed
+	 * Author:            Emran
 	 * Author URI:        https://emran.me/
 	 * License:           GPLv2.0+
 	 * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

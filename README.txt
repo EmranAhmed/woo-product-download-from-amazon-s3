@@ -1,4 +1,4 @@
-=== Amazon S3 WooCommerce Downloadable Files ===
+=== Woo Product Download from Amazon S3 ===
 Contributors: emranahmed
 Tags: woocommerce, amazon, aws, s3, download, downloadable product, s3-download
 Requires at least: 4.3
@@ -7,10 +7,10 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Amazon S3 Plugin For WooCommerce Downloadable Files
+Woocommerce Product Download / Upload to / from using Amazon S3 service.
 
 == Description ==
-Amazon S3 Plugin For WooCommerce Downloadable Files, to upload file and download process.
+Woocommerce Product Download / Upload to / from using Amazon S3 service.
 
 == Installation ==
 1. Unzip the downloaded zip file.
