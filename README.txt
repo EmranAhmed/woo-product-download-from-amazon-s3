@@ -10,12 +10,39 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WooCommerce Product Download / Upload to / from using Amazon S3 service.
 
 == Description ==
-WooCommerce Product Download / Upload to / from using Amazon S3 service.
+The Woo Product Download from Amazon S3 plugin for WooCommerce enables you to serve digital downloadable products through your Amazon AWS S3 service. Woo Product Download from Amazon S3 is simply allow you to browse existing buckets and files and add your chosen file to file path and can give you access to upload files to specific bucket. When your customer downloads their purchase the extension will serve that file as the download. You can also add non AWS files to your downloadable file path.
+
+= Links =
+* [Github](https://github.com/EmranAhmed/woo-product-download-from-amazon-s3/?utm_medium=referral&utm_source=wordpress.org&utm_campaign=Woo+AWS+S3+Readme&utm_content=Repo+Link)
 
 == Installation ==
-1. Unzip the downloaded zip file.
-2. Upload the plugin folder into the `wp-content/plugins/` directory of your WordPress site.
-3. Activate `Woo Product Download from Amazon S3` from Plugins page.
+
+###Automatic Install From WordPress Dashboard
+
+1. Login to your the admin panel
+2. Navigate to Plugins -> Add New
+3. Search **Woo Product Download from Amazon S3**
+4. Click install and activate respectively.
+
+###Manual Install From WordPress Dashboard
+
+If your server is not connected to the Internet, then you can use this method-
+
+1. Download the plugin by clicking on the red button above. A ZIP file will be downloaded.
+2. Login to your site's admin panel and navigate to Plugins -> Add New -> Upload.
+3. Click choose file, select the plugin file and click install
+
+###Install Using FTP
+
+If you are unable to use any of the methods due to internet connectivity and file permission issues, then you can use this method-
+
+1. Download the plugin by clicking on the red button above. A ZIP file will be downloaded.
+2. Unzip the file.
+3. Launch your favorite FTP client. Such as FileZilla, FireFTP, CyberDuck etc. If you are a more advanced user, then you can use SSH too.
+4. Upload the folder to wp-content/plugins/
+5. Log in to your WordPress dashboard.
+6. Navigate to Plugins -> Installed
+7. Activate the plugin
 
 == Screenshots ==
 
