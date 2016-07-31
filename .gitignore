@@ -14,3 +14,4 @@ bs-config.js
 *.json
 *.dat
 *.sql
+screenshot-*
