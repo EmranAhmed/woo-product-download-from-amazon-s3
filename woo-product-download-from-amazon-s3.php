@@ -1,13 +1,16 @@
 <?php
 	/**
-	 * Plugin Name:       Woo Product Download from Amazon S3
-	 * Description:       WooCommerce Product Download / Upload to / from using Amazon S3 service.
-	 * Version:           1.0.0
-	 * Author:            Emran
-	 * Author URI:        https://emran.me/
-	 * License:           GPLv2.0+
-	 * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
-	 * Text Domain:       woo-product-download-from-amazon-s3
+	 * Plugin Name:  Woo Product Download from Amazon S3
+	 * Plugin URI:   https://wordpress.org/plugins/woo-product-download-from-amazon-s3/
+	 * Description:  WooCommerce Product Download / Upload to / from using Amazon S3 service.
+	 * Version:      1.0.1
+	 * Author:       Emran
+	 * Author URI:   https://emran.me/
+	 * License:      GPLv2.0+
+	 * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
+	 *
+	 * Text Domain:  woo-product-download-from-amazon-s3
+	 * Domain Path:  /languages/
 	 */
 
 	defined( 'ABSPATH' ) or die( 'Keep Quit' );
@@ -26,7 +29,7 @@
 				$this->includes();
 				$this->hooks();
 
-				do_action( 'ea_wc_amazon_s3_loaded' );
+				do_action( 'ea_wc_amazon_s3_loaded', $this );
 			}
 
 			private function constants() {
@@ -42,7 +45,7 @@
 			}
 
 			public function init() {
-				load_plugin_textdomain( 'woo-product-download-from-amazon-s3', FALSE, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+				load_plugin_textdomain( 'woo-product-download-from-amazon-s3', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 			}
 
 			private function hooks() {
@@ -74,12 +77,14 @@
 				// Add Media Tab
 				add_filter( 'media_upload_tabs', array( $this, 'media_tabs' ) );
 
+				// Bucket List
 				add_action( 'media_upload_ea_wc_amazon_buckets', array( $this, 'buckets_iframe' ) );
+
+				// Upload to bucket
 				add_action( 'media_upload_ea_wc_amazon_upload', array( $this, 'upload_iframe' ) );
 
 				// Plugin Row Meta
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ), 999 );
-
 			}
 
 			public function upload_handler() {
