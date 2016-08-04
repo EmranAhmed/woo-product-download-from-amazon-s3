@@ -65,6 +65,11 @@ If you are unable to use any of the methods due to internet connectivity and fil
 
 == Changelog ==
 
+= 1.0.1 =
+
+- Update plugin header file
+- Added variable on `ea_wc_amazon_s3_loaded` hook
+
 = 1.0.0 =
 
-Initial release
+- Initial release
