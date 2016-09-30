@@ -52,6 +52,7 @@ If you are unable to use any of the methods due to internet connectivity and fil
 4. Browse S3 Bucket
 5. List Of Buckets
 6. Upload Filed to bucket
+7. Region List
 
 == Frequently Asked Questions ==
 
@@ -64,6 +65,10 @@ If you are unable to use any of the methods due to internet connectivity and fil
 - Install this plugin and goto **Woocommerce => Settings => Amazon S3 Settings** and save **Amazon S3 Settings** with *Amazon S3 Access Key ID* *Amazon S3 Secret Key* and *Amazon S3 EndPoint*
 
 == Changelog ==
+
+= 1.0.2 =
+
+- Using WC_Logger to log errors
 
 = 1.0.1 =
 

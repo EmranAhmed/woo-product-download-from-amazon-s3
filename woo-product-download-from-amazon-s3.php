@@ -3,7 +3,7 @@
 	 * Plugin Name:  Woo Product Download from Amazon S3
 	 * Plugin URI:   https://wordpress.org/plugins/woo-product-download-from-amazon-s3/
 	 * Description:  WooCommerce Product Download / Upload to / from using Amazon S3 service.
-	 * Version:      1.0.1
+	 * Version:      1.0.2
 	 * Author:       Emran
 	 * Author URI:   https://emran.me/
 	 * License:      GPLv2.0+
@@ -23,6 +23,8 @@
 			private $secret_key;
 			private $bucket;
 			private $endpoint;
+			private $log_enabled;
+			private $log;
 
 			public function __construct() {
 				$this->constants();
@@ -33,9 +35,10 @@
 			}
 
 			private function constants() {
-				$this->access_id  = trim( get_option( 'ea_wc_amazon_s3_key' ) );
-				$this->secret_key = trim( get_option( 'ea_wc_amazon_s3_secret_key' ) );
-				$this->endpoint   = trim( get_option( 'ea_wc_amazon_s3_endpoint' ) );
+				$this->access_id   = trim( get_option( 'ea_wc_amazon_s3_key' ) );
+				$this->secret_key  = trim( get_option( 'ea_wc_amazon_s3_secret_key' ) );
+				$this->endpoint    = trim( get_option( 'ea_wc_amazon_s3_endpoint' ) );
+				$this->log_enabled = get_option( 'ea_wc_amazon_s3_log' );
 			}
 
 			private function includes() {
@@ -85,6 +88,15 @@
 
 				// Plugin Row Meta
 				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ), 999 );
+			}
+
+			public function log( $message ) {
+				if ( $this->log_enabled ) {
+					if ( empty( $this->log ) ) {
+						$this->log = new WC_Logger();
+					}
+					$this->log->add( 'EA-WC-Amazon-S3', $message );
+				}
 			}
 
 			public function upload_handler() {
@@ -361,8 +373,8 @@
 						$('.woo-product-download-from-amazon-s3-insert').on('click', function (e) {
 							e.preventDefault();
 
-							var link = "<?php echo get_transient( 'ea_wc_amazon_s3_abs_path' ) ?>";
-							var file = "<?php echo get_transient( 'ea_wc_amazon_s3_file_name' ) ?>";
+							var link   = "<?php echo get_transient( 'ea_wc_amazon_s3_abs_path' ) ?>";
+							var file   = "<?php echo get_transient( 'ea_wc_amazon_s3_file_name' ) ?>";
 							var bucket = "<?php echo trailingslashit( get_transient( 'ea_wc_amazon_s3_bucket_name' ) ); ?>";
 							$(parent.window.file_name_field).val(file);
 							$(parent.window.file_path_field).val(link + bucket + file);
@@ -404,14 +416,24 @@
 
 				if ( ! $this->is_aws_hosted_file( $file_path ) ) {
 
+					$this->log( 'Non AWS Hosted file path: "' . $file_path . '"' );
+
 					$file_download_method = get_option( 'woocommerce_file_download_method', 'force' );
+
+					$this->log( 'Non AWS Hosted File download method: "' . $file_download_method . '"' );
 
 					// This Hook is used from /woocommerce/includes/class-wc-download-handler.php file
 					do_action( 'woocommerce_download_file_' . $file_download_method, $file_path, $filename );
 				} else {
 
+					$this->log( 'AWS Endpoint: ' . get_option( 'ea_wc_amazon_s3_endpoint' ) );
+					$this->log( 'AWS File Full Path: ' . $file_path );
+
 					$file_path = str_replace( $this->get_s3_absolute_path(), '', $file_path );
 					$file      = $this->get_s3_url( $file_path );
+
+					$this->log( 'Actual File Path: ' . $file_path );
+					$this->log( 'Download Path: ' . $file );
 
 					$remote_header = get_headers( $file, TRUE );
 
@@ -420,6 +442,8 @@
 					if ( $remote_code[ 0 ] == '404' || $remote_code[ 0 ] == '403' ) {
 						$this->download_error( __( 'File not found. Please try again.', 'woocommerce' ) );
 					}
+
+					$this->log( 'Remote Header: ' . wp_json_encode( $remote_code ) );
 
 					$this->download_headers( $file, $filename );
 					$this->readfile_chunked( $file );
@@ -574,10 +598,23 @@
 
 				$settings[] = array(
 					'name' => esc_html__( 'Amazon S3 EndPoint', 'woo-product-download-from-amazon-s3' ),
-					'desc' => __( ' Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code>' ),
+					'desc' => __( '<br>Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code> without any http or https. Not S3 Website EndPoint link.<br>
+<ul>
+<li>If you create a client by specifying any other AWS Region, each of these regions maps to the region-specific endpoint: <code>s3-&lt;region&gt;.amazonaws.com</code>. </li>
+</ul>' ),
 					'id'   => 'ea_wc_amazon_s3_endpoint',
 					'type' => 'text',
 				);
+
+
+				$settings[] = array(
+					'name'    => esc_html__( 'Enable Log', 'woo-product-download-from-amazon-s3' ),
+					'desc'    => __( 'Enable Log to logging issues.' ),
+					'id'      => 'ea_wc_amazon_s3_log',
+					'type'    => 'checkbox',
+					'default' => FALSE
+				);
+
 				$settings[] = array( 'type' => 'sectionend', 'id' => 'ea_wc_amazon_s3' );
 
 				return apply_filters( 'ea_wc_amazon_s3_setting_options', $settings );
