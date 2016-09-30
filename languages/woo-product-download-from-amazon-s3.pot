@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Woo Product Download from Amazon S3\n"
-"POT-Creation-Date: 2016-09-30 18:49+0600\n"
-"PO-Revision-Date: 2016-09-30 18:49+0600\n"
+"POT-Creation-Date: 2016-10-01 00:42+0600\n"
+"PO-Revision-Date: 2016-10-01 00:41+0600\n"
 "Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
 "Language-Team: ThemeHippo <themehippo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,135 +20,143 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: woo-product-download-from-amazon-s3.php:109
+#: woo-product-download-from-amazon-s3.php:110
 msgid "Not Verified"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:109
-#: woo-product-download-from-amazon-s3.php:113
-#: woo-product-download-from-amazon-s3.php:137
+#: woo-product-download-from-amazon-s3.php:110
+#: woo-product-download-from-amazon-s3.php:114
+#: woo-product-download-from-amazon-s3.php:138
 msgid "Error"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:113
+#: woo-product-download-from-amazon-s3.php:114
 msgid "Please select a file to upload"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:137
+#: woo-product-download-from-amazon-s3.php:138
 msgid "Something went wrong during the upload process."
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:173
-#: woo-product-download-from-amazon-s3.php:566
-#: woo-product-download-from-amazon-s3.php:580
+#: woo-product-download-from-amazon-s3.php:174
+#: woo-product-download-from-amazon-s3.php:604
+#: woo-product-download-from-amazon-s3.php:618
 msgid "Amazon S3 Settings"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:230
+#: woo-product-download-from-amazon-s3.php:231
 msgid "Select a Bucket"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:237
+#: woo-product-download-from-amazon-s3.php:238
 msgid "Bucket name"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:238
-#: woo-product-download-from-amazon-s3.php:268
+#: woo-product-download-from-amazon-s3.php:239
+#: woo-product-download-from-amazon-s3.php:269
 msgid "Actions"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:245
+#: woo-product-download-from-amazon-s3.php:246
 msgid "Browse"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:260
+#: woo-product-download-from-amazon-s3.php:261
 msgid "Go Back"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:265
+#: woo-product-download-from-amazon-s3.php:266
 msgid "File name"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:266
+#: woo-product-download-from-amazon-s3.php:267
 msgid "File size"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:267
+#: woo-product-download-from-amazon-s3.php:268
 msgid "Uploaded on"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:288
+#: woo-product-download-from-amazon-s3.php:289
 msgid "ago"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:291
+#: woo-product-download-from-amazon-s3.php:292
 msgid "Use File"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:308
+#: woo-product-download-from-amazon-s3.php:309
 msgid "Start Over"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:314
+#: woo-product-download-from-amazon-s3.php:315
 msgid "View More"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:339
+#: woo-product-download-from-amazon-s3.php:340
 msgid "Browse S3 Buckets"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:340
+#: woo-product-download-from-amazon-s3.php:341
 msgid "Upload to Amazon S3"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:394
-msgid "Select a bucket to upload the file to"
+#: woo-product-download-from-amazon-s3.php:399
+msgid "Select a bucket"
 msgstr ""
 
 #: woo-product-download-from-amazon-s3.php:402
+msgid " - Select a Bucket - "
+msgstr ""
+
+#: woo-product-download-from-amazon-s3.php:411
+msgid "Choose file to upload"
+msgstr ""
+
+#: woo-product-download-from-amazon-s3.php:421
 msgid "Upload to S3"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:407
+#: woo-product-download-from-amazon-s3.php:430
 msgid ""
 "Success! <a href=\"#\" class=\"woo-product-download-from-amazon-s3-insert"
 "\">Insert uploaded file</a>."
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:443
+#: woo-product-download-from-amazon-s3.php:483
 msgid "File not found. Please try again."
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:484
+#: woo-product-download-from-amazon-s3.php:522
 msgid "Go to homepage"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:586
+#: woo-product-download-from-amazon-s3.php:624
 msgid "Amazon S3 Access Key ID"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:587
+#: woo-product-download-from-amazon-s3.php:625
 msgid ""
 "After logging into your Amazon S3 account, click on \"Security Credentials\" "
 "in the sidebar. Scroll down to \"Access Keys (Access Key ID and Secret "
 "Access Key)\" and you will see your Access Key ID. Copy and paste it here."
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:593
+#: woo-product-download-from-amazon-s3.php:631
 msgid "Amazon S3 Secret Key"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:594
+#: woo-product-download-from-amazon-s3.php:632
 msgid ""
 "In the same Access Credentials area, your \"Secret Key\" will be hidden. You "
 "will need to click the \"Show\" link to see it. Copy and paste it here."
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:600
+#: woo-product-download-from-amazon-s3.php:638
 msgid "Amazon S3 EndPoint"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:601
+#: woo-product-download-from-amazon-s3.php:639
 msgid ""
 "<br>Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code> without "
 "any http or https. Not S3 Website EndPoint link.<br>\n"
@@ -159,11 +167,11 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:611
+#: woo-product-download-from-amazon-s3.php:649
 msgid "Enable Log"
 msgstr ""
 
-#: woo-product-download-from-amazon-s3.php:612
+#: woo-product-download-from-amazon-s3.php:650
 msgid "Enable Log to logging issues."
 msgstr ""
 
