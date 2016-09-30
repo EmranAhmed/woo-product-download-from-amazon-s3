@@ -3,7 +3,7 @@
 	 * Plugin Name:  Woo Product Download from Amazon S3
 	 * Plugin URI:   https://wordpress.org/plugins/woo-product-download-from-amazon-s3/
 	 * Description:  WooCommerce Product Download / Upload to / from using Amazon S3 service.
-	 * Version:      1.0.2
+	 * Version:      1.0.3
 	 * Author:       Emran
 	 * Author URI:   https://emran.me/
 	 * License:      GPLv2.0+
@@ -38,7 +38,7 @@
 				$this->access_id   = trim( get_option( 'ea_wc_amazon_s3_key' ) );
 				$this->secret_key  = trim( get_option( 'ea_wc_amazon_s3_secret_key' ) );
 				$this->endpoint    = trim( get_option( 'ea_wc_amazon_s3_endpoint' ) );
-				$this->log_enabled = get_option( 'ea_wc_amazon_s3_log' );
+				$this->log_enabled = ( get_option( 'ea_wc_amazon_s3_log', 'no' ) === 'yes' ) ? TRUE : FALSE;
 			}
 
 			private function includes() {
@@ -91,6 +91,7 @@
 			}
 
 			public function log( $message ) {
+
 				if ( $this->log_enabled ) {
 					if ( empty( $this->log ) ) {
 						$this->log = new WC_Logger();
@@ -234,15 +235,15 @@
 
 								echo '<table class="wp-list-table widefat fixed striped" style="max-height: 500px;overflow-y:scroll;">';
 								echo '<tr>';
-								echo '<th>' . esc_html__( 'Bucket name', 'woo-product-download-from-amazon-s3' ) . '</th>';
-								echo '<th>' . esc_html__( 'Actions', 'woo-product-download-from-amazon-s3' ) . ' </th>';
+								echo '<th><strong>' . esc_html__( 'Bucket name', 'woo-product-download-from-amazon-s3' ) . '</strong></th>';
+								echo '<th><strong>' . esc_html__( 'Actions', 'woo-product-download-from-amazon-s3' ) . '</strong></th>';
 								echo '</tr>';
 
 								foreach ( $buckets as $key => $bucket ) {
 									echo '<tr>';
 									echo '<td>' . $bucket . '</td>';
 									echo '<td>';
-									echo '<a href = "' . esc_url( add_query_arg( 'bucket', $bucket ) ) . '">' . esc_html__( 'Browse', 'woo-product-download-from-amazon-s3' ) . '</a>';
+									echo '<a href="' . esc_url( add_query_arg( 'bucket', $bucket ) ) . '">' . esc_html__( 'Browse', 'woo-product-download-from-amazon-s3' ) . '</a>';
 									echo '</td>';
 									echo '</tr>';
 								}
@@ -348,6 +349,7 @@
 
 			public function upload_iframe_content( $type = 'file', $errors = NULL, $id = NULL ) {
 
+
 				wp_enqueue_style( 'media' );
 
 				//$form_action_url = add_query_arg( array( 'ea_wc_amazon_s3_action' => 's3_upload' ), admin_url() );
@@ -365,7 +367,12 @@
 
 					.ea_wc_amazon_s3_errors p {
 						margin  : 10px 15px;
-						padding : 0 10px;
+						padding : 10px;
+						}
+
+					.wrap {
+						margin        : 20px 1em 1em;
+						padding-right : 20px;
 						}
 				</style>
 				<script>
@@ -383,36 +390,60 @@
 						});
 					});
 				</script>
+
 				<div class="wrap">
 					<form enctype="multipart/form-data" method="post" action="<?php echo esc_url( admin_url() ); ?>">
-						<p>
-							<select name="ea_wc_amazon_s3_bucket" id="ea_wc_amazon_s3_bucket">
-								<?php foreach ( $this->get_s3_buckets() as $key => $bucket ) : ?>
-									<option value="<?php echo esc_attr( $bucket ); ?>"><?php echo esc_html( $bucket ); ?></option>
-								<?php endforeach; ?>
-							</select>
-							<label for="ea_wc_amazon_s3_bucket"><?php esc_html_e( 'Select a bucket to upload the file to', 'woo-product-download-from-amazon-s3' ); ?></label>
-						</p>
-						<p>
-							<input type="file" name="ea_wc_amazon_s3_file">
-						</p>
+						<table class="form-table">
+							<tbody>
+							<tr>
+								<th><label for="ea_wc_amazon_s3_bucket"><?php esc_html_e( 'Select a bucket', 'woo-product-download-from-amazon-s3' ); ?></label></th>
+								<td>
+									<select name="ea_wc_amazon_s3_bucket" id="ea_wc_amazon_s3_bucket">
+										<option value=""><?php esc_html_e( ' - Select a Bucket - ', 'woo-product-download-from-amazon-s3' ); ?></option>
+										<?php foreach ( $this->get_s3_buckets() as $key => $bucket ) : ?>
+											<option value="<?php echo esc_attr( $bucket ); ?>"><?php echo esc_html( $bucket ); ?></option>
+										<?php endforeach; ?>
+									</select>
+								</td>
+							</tr>
 
-						<p>
-							<input type="submit" name="ea_wc_amazon_s3_upload_submit" class="button-secondary"
-							       value="<?php esc_attr_e( 'Upload to S3', 'woo-product-download-from-amazon-s3' ); ?>"/>
-						</p>
+							<tr>
+								<th><label for="ea_wc_amazon_s3_file"><?php esc_html_e( 'Choose file to upload', 'woo-product-download-from-amazon-s3' ); ?></label></th>
+								<td>
+									<input id="ea_wc_amazon_s3_file" type="file" name="ea_wc_amazon_s3_file">
+								</td>
+							</tr>
+
+							<tr>
+								<th>&nbsp;</th>
+								<td>
+									<input type="submit" name="ea_wc_amazon_s3_upload_submit" class="button-secondary"
+									       value="<?php esc_attr_e( 'Upload to S3', 'woo-product-download-from-amazon-s3' ); ?>"/>
+								</td>
+							</tr>
+
+
+							<?php if ( ! empty( $_GET[ 'ea_wc_amazon_s3_success' ] ) && '1' == $_GET[ 'ea_wc_amazon_s3_success' ] ) : ?>
+								<tr>
+									<td colspan="2">
+										<div class="ea_wc_amazon_s3_errors">
+											<p class="ea_wc_amazon_s3_success"><?php _e( 'Success! <a href="#" class="woo-product-download-from-amazon-s3-insert">Insert uploaded file</a>.' ) ?></p>
+										</div>
+									</td>
+								</tr>
+							<?php endif; ?>
+							</tbody>
+						</table>
+
 						<?php wp_nonce_field( 'ea_wc_amazon_s3_upload_file' ); ?>
-						<?php
-							if ( ! empty( $_GET[ 'ea_wc_amazon_s3_success' ] ) && '1' == $_GET[ 'ea_wc_amazon_s3_success' ] ) {
-								echo '<div class="ea_wc_amazon_s3_errors"><p class="ea_wc_amazon_s3_success">' . __( 'Success! <a href="#" class="woo-product-download-from-amazon-s3-insert">Insert uploaded file</a>.' ) . '</p></div>';
-							}
-						?>
 					</form>
 				</div>
 				<?php
 			}
 
 			public function process_download( $file_path, $filename ) {
+
+				$this->log( '===========================================' );
 
 				if ( ! $this->is_aws_hosted_file( $file_path ) ) {
 
@@ -426,24 +457,31 @@
 					do_action( 'woocommerce_download_file_' . $file_download_method, $file_path, $filename );
 				} else {
 
+					$this->log( 'AWS RAW File Path: ' . $file_path );
+
+					$file_path = apply_filters( 'ea_wc_amazon_s3_file_path', rawurldecode( $file_path ), $file_path );
+
 					$this->log( 'AWS Endpoint: ' . get_option( 'ea_wc_amazon_s3_endpoint' ) );
+
 					$this->log( 'AWS File Full Path: ' . $file_path );
 
 					$file_path = str_replace( $this->get_s3_absolute_path(), '', $file_path );
-					$file      = $this->get_s3_url( $file_path );
+
+					$file = $this->get_s3_url( $file_path );
 
 					$this->log( 'Actual File Path: ' . $file_path );
-					$this->log( 'Download Path: ' . $file );
+
+					$this->log( 'Downloadable URL: ' . $file );
 
 					$remote_header = get_headers( $file, TRUE );
 
 					preg_match( '/\d{3}/', $remote_header[ 0 ], $remote_code );
 
-					if ( $remote_code[ 0 ] == '404' || $remote_code[ 0 ] == '403' ) {
-						$this->download_error( __( 'File not found. Please try again.', 'woocommerce' ) );
-					}
-
 					$this->log( 'Remote Header: ' . wp_json_encode( $remote_code ) );
+
+					if ( $remote_code[ 0 ] == '404' || $remote_code[ 0 ] == '403' ) {
+						$this->download_error( esc_html__( 'File not found. Please try again.', 'woocommerce' ) );
+					}
 
 					$this->download_headers( $file, $filename );
 					$this->readfile_chunked( $file );
@@ -612,7 +650,7 @@
 					'desc'    => __( 'Enable Log to logging issues.' ),
 					'id'      => 'ea_wc_amazon_s3_log',
 					'type'    => 'checkbox',
-					'default' => FALSE
+					'default' => 'no'
 				);
 
 				$settings[] = array( 'type' => 'sectionend', 'id' => 'ea_wc_amazon_s3' );

@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Amazon S3 WooCommerce Downloadable Files\n"
-"POT-Creation-Date: 2016-07-26 13:56+0600\n"
-"PO-Revision-Date: 2016-07-26 13:56+0600\n"
+"Project-Id-Version: Woo Product Download from Amazon S3\n"
+"POT-Creation-Date: 2016-09-30 18:49+0600\n"
+"PO-Revision-Date: 2016-09-30 18:49+0600\n"
 "Last-Translator: ThemeHippo <themehippo@gmail.com>\n"
 "Language-Team: ThemeHippo <themehippo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: ea-wc-amazon-s3.php\n"
+"X-Poedit-WPHeader: woo-product-download-from-amazon-s3.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -20,143 +20,168 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: ea-wc-amazon-s3.php:93
+#: woo-product-download-from-amazon-s3.php:109
 msgid "Not Verified"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:93 ea-wc-amazon-s3.php:97 ea-wc-amazon-s3.php:121
+#: woo-product-download-from-amazon-s3.php:109
+#: woo-product-download-from-amazon-s3.php:113
+#: woo-product-download-from-amazon-s3.php:137
 msgid "Error"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:97
+#: woo-product-download-from-amazon-s3.php:113
 msgid "Please select a file to upload"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:121
+#: woo-product-download-from-amazon-s3.php:137
 msgid "Something went wrong during the upload process."
 msgstr ""
 
-#: ea-wc-amazon-s3.php:157 ea-wc-amazon-s3.php:538 ea-wc-amazon-s3.php:552
+#: woo-product-download-from-amazon-s3.php:173
+#: woo-product-download-from-amazon-s3.php:566
+#: woo-product-download-from-amazon-s3.php:580
 msgid "Amazon S3 Settings"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:214
+#: woo-product-download-from-amazon-s3.php:230
 msgid "Select a Bucket"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:221
+#: woo-product-download-from-amazon-s3.php:237
 msgid "Bucket name"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:222 ea-wc-amazon-s3.php:252
+#: woo-product-download-from-amazon-s3.php:238
+#: woo-product-download-from-amazon-s3.php:268
 msgid "Actions"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:229
+#: woo-product-download-from-amazon-s3.php:245
 msgid "Browse"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:244
+#: woo-product-download-from-amazon-s3.php:260
 msgid "Go Back"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:249
+#: woo-product-download-from-amazon-s3.php:265
 msgid "File name"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:250
+#: woo-product-download-from-amazon-s3.php:266
 msgid "File size"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:251
+#: woo-product-download-from-amazon-s3.php:267
 msgid "Uploaded on"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:272
+#: woo-product-download-from-amazon-s3.php:288
 msgid "ago"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:275
+#: woo-product-download-from-amazon-s3.php:291
 msgid "Use File"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:292
+#: woo-product-download-from-amazon-s3.php:308
 msgid "Start Over"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:298
+#: woo-product-download-from-amazon-s3.php:314
 msgid "View More"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:323
+#: woo-product-download-from-amazon-s3.php:339
 msgid "Browse S3 Buckets"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:324
+#: woo-product-download-from-amazon-s3.php:340
 msgid "Upload to Amazon S3"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:378
+#: woo-product-download-from-amazon-s3.php:394
 msgid "Select a bucket to upload the file to"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:386
+#: woo-product-download-from-amazon-s3.php:402
 msgid "Upload to S3"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:391
+#: woo-product-download-from-amazon-s3.php:407
 msgid ""
-"Success! <a href=\"#\" class=\"ea-wc-amazon-s3-insert\">Insert uploaded "
-"file</a>."
+"Success! <a href=\"#\" class=\"woo-product-download-from-amazon-s3-insert"
+"\">Insert uploaded file</a>."
 msgstr ""
 
-#: ea-wc-amazon-s3.php:417
+#: woo-product-download-from-amazon-s3.php:443
 msgid "File not found. Please try again."
 msgstr ""
 
-#: ea-wc-amazon-s3.php:456
+#: woo-product-download-from-amazon-s3.php:484
 msgid "Go to homepage"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:558
+#: woo-product-download-from-amazon-s3.php:586
 msgid "Amazon S3 Access Key ID"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:559
+#: woo-product-download-from-amazon-s3.php:587
 msgid ""
 "After logging into your Amazon S3 account, click on \"Security Credentials\" "
 "in the sidebar. Scroll down to \"Access Keys (Access Key ID and Secret "
 "Access Key)\" and you will see your Access Key ID. Copy and paste it here."
 msgstr ""
 
-#: ea-wc-amazon-s3.php:565
+#: woo-product-download-from-amazon-s3.php:593
 msgid "Amazon S3 Secret Key"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:566
+#: woo-product-download-from-amazon-s3.php:594
 msgid ""
 "In the same Access Credentials area, your \"Secret Key\" will be hidden. You "
 "will need to click the \"Show\" link to see it. Copy and paste it here."
 msgstr ""
 
-#: ea-wc-amazon-s3.php:572
+#: woo-product-download-from-amazon-s3.php:600
 msgid "Amazon S3 EndPoint"
 msgstr ""
 
-#: ea-wc-amazon-s3.php:573
-msgid " Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code>"
+#: woo-product-download-from-amazon-s3.php:601
+msgid ""
+"<br>Amazon S3 Endpoint like: <code>s3-us-west-2.amazonaws.com</code> without "
+"any http or https. Not S3 Website EndPoint link.<br>\n"
+"<ul>\n"
+"<li>If you create a client by specifying any other AWS Region, each of these "
+"regions maps to the region-specific endpoint: <code>s3-&lt;region&gt;."
+"amazonaws.com</code>. </li>\n"
+"</ul>"
+msgstr ""
+
+#: woo-product-download-from-amazon-s3.php:611
+msgid "Enable Log"
+msgstr ""
+
+#: woo-product-download-from-amazon-s3.php:612
+msgid "Enable Log to logging issues."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Amazon S3 WooCommerce Downloadable Files"
+msgid "Woo Product Download from Amazon S3"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/woo-product-download-from-amazon-s3/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Amazon S3 Plugin For WooCommerce Downloadable Files"
+msgid ""
+"WooCommerce Product Download / Upload to / from using Amazon S3 service."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Emran Ahmed"
+msgid "Emran"
 msgstr ""
 
 #. Author URI of the plugin/theme
