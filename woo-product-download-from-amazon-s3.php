@@ -3,7 +3,7 @@
 	 * Plugin Name:  Woo Product Download from Amazon S3
 	 * Plugin URI:   https://wordpress.org/plugins/woo-product-download-from-amazon-s3/
 	 * Description:  WooCommerce Product Download / Upload to / from using Amazon S3 service.
-	 * Version:      1.0.3
+	 * Version:      1.0.4
 	 * Author:       Emran
 	 * Author URI:   https://emran.me/
 	 * License:      GPLv2.0+
@@ -445,33 +445,32 @@
 
 				$this->log( '===========================================' );
 
+				$file_download_method = get_option( 'woocommerce_file_download_method', 'force' );
+
 				if ( ! $this->is_aws_hosted_file( $file_path ) ) {
 
-					$this->log( 'Non AWS Hosted file path: "' . $file_path . '"' );
-
-					$file_download_method = get_option( 'woocommerce_file_download_method', 'force' );
-
+					$this->log( 'Non AWS Hosted File path: "' . $file_path . '"' );
+					$this->log( 'Non AWS Hosted File name: "' . $filename . '"' );
 					$this->log( 'Non AWS Hosted File download method: "' . $file_download_method . '"' );
 
 					// This Hook is used from /woocommerce/includes/class-wc-download-handler.php file
 					do_action( 'woocommerce_download_file_' . $file_download_method, $file_path, $filename );
 				} else {
 
-					$this->log( 'AWS RAW File Path: ' . $file_path );
+					$this->log( 'AWS RAW File Path: "' . $file_path . '"' );
+					$this->log( 'AWS RAW File Name: "' . $filename . '"' );
+					$this->log( 'AWS Endpoint: "' . get_option( 'ea_wc_amazon_s3_endpoint' ) . '"' );
+					$this->log( 'AWS Hosted File download method: "' . $file_download_method . '"' );
 
 					$file_path = apply_filters( 'ea_wc_amazon_s3_file_path', rawurldecode( $file_path ), $file_path );
 
-					$this->log( 'AWS Endpoint: ' . get_option( 'ea_wc_amazon_s3_endpoint' ) );
-
-					$this->log( 'AWS File Full Path: ' . $file_path );
+					$this->log( 'AWS File Full Path: "' . $file_path . '"' );
 
 					$file_path = str_replace( $this->get_s3_absolute_path(), '', $file_path );
+					$file      = $this->get_s3_url( $file_path );
 
-					$file = $this->get_s3_url( $file_path );
-
-					$this->log( 'Actual File Path: ' . $file_path );
-
-					$this->log( 'Downloadable URL: ' . $file );
+					$this->log( 'Actual File: "' . $file_path . '"' );
+					$this->log( 'Downloadable URL: "' . $file . '"' );
 
 					$remote_header = get_headers( $file, TRUE );
 
@@ -483,8 +482,12 @@
 						$this->download_error( esc_html__( 'File not found. Please try again.', 'woocommerce' ) );
 					}
 
-					$this->download_headers( $file, $filename );
-					$this->readfile_chunked( $file );
+					$this->log( 'WC Function Used : "' . sprintf( 'WC_Download_Handler::download_file_%s', $file_download_method ) . '"' );
+
+					call_user_func( sprintf( 'WC_Download_Handler::download_file_%s', $file_download_method ), $file, $filename );
+
+					// Old $this->download_headers( $file, $filename );
+					// Old $this->readfile_chunked( $file );
 				}
 
 				exit();
@@ -513,8 +516,9 @@
 					$bucket = $this->bucket;
 				}
 
-				//return str_ireplace( 's3.amazonaws.com', self::$link, $s3->getAuthenticatedURL( $bucket, $filename, ( 60 * $expires ), FALSE, is_ssl() ) );
-				return $s3->getAuthenticatedURL( $bucket, $filename, ( 1 * HOUR_IN_SECONDS ), FALSE, is_ssl() );
+				$aws_file_expire_time = apply_filters( 'ea_wc_amazon_s3_download_expire_time', ( 1 * HOUR_IN_SECONDS ) );
+
+				return $s3->getAuthenticatedURL( $bucket, $filename, $aws_file_expire_time, FALSE, is_ssl() );
 			}
 
 			private function download_error( $message, $title = '', $status = 404 ) {
@@ -524,6 +528,7 @@
 				wp_die( $message, $title, array( 'response' => $status ) );
 			}
 
+			// OLD
 			private function download_headers( $file_path, $filename ) {
 				$this->check_server_config();
 				$this->clean_buffers();
@@ -580,6 +585,7 @@
 				return $ctype;
 			}
 
+			// OLD
 			public function readfile_chunked( $file ) {
 				$chunksize = 1024 * 1024;
 				$handle    = @fopen( $file, 'r' );

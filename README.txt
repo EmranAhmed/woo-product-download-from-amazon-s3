@@ -65,10 +65,14 @@ If you are unable to use any of the methods due to internet connectivity and fil
 - Install this plugin and goto **Woocommerce => Settings => Amazon S3 Settings** and save **Amazon S3 Settings** with *Amazon S3 Access Key ID* *Amazon S3 Secret Key* and *Amazon S3 EndPoint*
 
 == Changelog ==
+
+= 1.0.4 =
+
+- Support "WooCommerce File Download Methods" like: force / redirect only / x-send file
+
 = 1.0.3 =
 
-- Filter `ea_wc_amazon_s3_file_path` added to prevent 404 error
--
+- Filter `ea_wc_amazon_s3_file_path` added to prevent 404 error file download
 
 = 1.0.2 =
 
